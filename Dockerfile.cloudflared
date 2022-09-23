@@ -1,0 +1,9 @@
+FROM alpine:3.15
+
+WORKDIR /usr/app
+
+ADD downloader.sh downloader.sh
+RUN chmod +x downloader.sh
+RUN ./downloader.sh
+
+CMD ./cloudflared tunnel --no-autoupdate run --token $CLOUDFLARED_TOKEN

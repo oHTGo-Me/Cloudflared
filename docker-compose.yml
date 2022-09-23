@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  tunnel:
+    container_name: tunnel
+    image: cloudflared
+    build:
+      context: .
+      dockerfile: Dockerfile.cloudflared
+    env_file:
+      - .env
